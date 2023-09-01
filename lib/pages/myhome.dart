@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-List<String> nombres = String ["Maria", "Ana", "Max", "Juan", "Alex"];
 
 
 class MyHomePage extends StatefulWidget {
@@ -15,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double _volume = 0.0;
   int _counter = 0;
 
   void _incrementCounter() {
@@ -34,12 +34,21 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+
         child: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.volume_up),
+              tooltip: 'Increase volume by 10',
+              onPressed: () {
+                setState(() {
+                  _volume += 10;
+                });
+              },
+            ),
+            Text('Volume : $_volume'),
             const Text(
               'You have pushed the button this many times:',
             ),
